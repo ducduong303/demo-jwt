@@ -1,0 +1,34 @@
+
+### Register 
+POST http://localhost:5000/user/register
+Content-Type: application/json
+
+{
+    "username":"lananh",
+    "email":"duc1445@gmail.com",
+    "password":"duc1445@gmail.com"
+}
+
+### Login 
+POST http://localhost:5000/user/login
+Content-Type: application/json
+
+{
+    "email":"duc1445@gmail.com",
+    "password":"duc1445@gmail.com"
+}
+
+### refresh Token
+POST http://localhost:5000/user/refresh_token
+Content-Type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMWEwYWU4NmFjZmM0MWQ2OGY5NjM4MSIsIm5hbWUiOiJkdWNkdW9uZyIsImlhdCI6MTYyOTEwNTEyOSwiZXhwIjoxNjI5MTkxNTI5fQ.fBoXzixrxbGPjkAlAP3v1t8Tj2sNWY18kDWlPjkOAzE"
+}
+
+
+
+### get AllUser
+GET http://localhost:5000/user/all
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMWEwYWU4NmFjZmM0MWQ2OGY5NjM4MSIsIm5hbWUiOiJkdWNkdW9uZyIsImlhdCI6MTYyOTEwNTEyOSwiZXhwIjoxNjI5MTA1MTg5fQ.2IarVoGVEJc7XYa3VSVqd_aVbbTFIMR5JlG8q03_Ock

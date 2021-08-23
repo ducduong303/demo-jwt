@@ -7,7 +7,6 @@ const userCtrl = {
     registerUser: async (req, res) => {
         try {
             const { username, email, password } = req.body;
-
             const user = await Users.findOne({ email: email })
             if (user) return res.status(400).json({ msg: "Email đã được đăng ký" })
 

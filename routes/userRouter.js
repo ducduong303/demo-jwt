@@ -8,7 +8,7 @@ router.post('/register', userCtrl.registerUser)
 router.post('/login', userCtrl.loginUser)
 // verify Token
 router.post('/refresh_token', userCtrl.refreshToken)
-// get Alluser
+// get AllUser
 router.get("/all", auth, authAdmin, userCtrl.getAllUser)
 
 

@@ -12,9 +12,6 @@ app.use(express.json())
 app.use(cookieParser())
 
 
-app.get("/ms", (req, res) => {
-    res.send({ msg: "xin chào các bạn" })
-})
 app.use("/user", require('./routes/userRouter'))
 
 const URI = process.env.MONGODB_URL

@@ -58,7 +58,6 @@ const userCtrl = {
             // const token = req.header("Authorization")
             const refreshToken = req.body.token;
             // console.log(refreshToken);
-
             if (!refreshToken) return res.send({ msg: "Người dùng chưa đăng nhập" })
 
             jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (err, user) => {
@@ -74,7 +73,6 @@ const userCtrl = {
             return res.status(500).json({ msg: err.message })
         }
     },
-
     getAllUser: async (req, res) => {
         try {
             const apiFeatures = new APIfeatures(Users.find(), req.query)

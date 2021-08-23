@@ -17,7 +17,6 @@ function Home(props) {
     const refreshToken = async () => {
         const refreshToken = localStorage.getItem("refresh_token")
         if (!refreshToken) {
-            // history.push("/")
             localStorage.removeItem("access_token")
             localStorage.removeItem("refresh_token")
             localStorage.removeItem("isLogin")
@@ -56,6 +55,7 @@ function Home(props) {
             } catch (error) {
                 setLoadingdata(false)
                 NotificationError("", error.msg)
+                setUserList([])
             }
         } else {
             // 
@@ -66,9 +66,6 @@ function Home(props) {
         localStorage.clear()
         setUserList([])
     }
-
-
-
 
 
     const toggleRegister = () => {

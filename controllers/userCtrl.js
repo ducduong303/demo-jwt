@@ -33,7 +33,7 @@ const userCtrl = {
 
             // if login success create token
             const payload = { id: user._id, name: user.username }
-            let access_token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "60s" })
+            let access_token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "30s" })
             let refresh_token = jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "1d" })
             const userInfo = {
                 avatar: user.avatar,

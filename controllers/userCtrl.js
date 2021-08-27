@@ -60,10 +60,8 @@ const userCtrl = {
             // console.log(refreshToken);
 
             if (!refreshToken) return res.send({ msg: "Người dùng chưa đăng nhập" })
-
             jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (err, user) => {
                 // if (err) return res.send(false)
-
                 if (err) return res.status(403).json({ msg: "Người dùng chưa đăng nhập" })
                 // console.log("user", user);
                 const payload = { id: user.id, name: user.name }
@@ -79,7 +77,6 @@ const userCtrl = {
         try {
             const apiFeatures = new APIfeatures(Users.find(), req.query)
                 .pagination()
-
             const user = await apiFeatures.query
             const totalItem = await Users.find()
             res.json({

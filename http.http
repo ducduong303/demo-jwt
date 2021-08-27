@@ -14,8 +14,8 @@ POST http://localhost:5000/user/login
 Content-Type: application/json
 
 {
-    "email":"duc1445@gmail.com",
-    "password":"duc1445@gmail.com"
+    "email":"duccon303@gmail.com",
+    "password":"duccon303@gmail.com"
 }
 
 ### refresh Token
@@ -23,7 +23,7 @@ POST http://localhost:5000/user/refresh_token
 Content-Type: application/json
 
 {
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMWEwYWU4NmFjZmM0MWQ2OGY5NjM4MSIsIm5hbWUiOiJkdWNkdW9uZyIsImlhdCI6MTYyOTEwNTEyOSwiZXhwIjoxNjI5MTkxNTI5fQ.fBoXzixrxbGPjkAlAP3v1t8Tj2sNWY18kDWlPjkOAzE"
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMWEwYWU4NmFjZmM0MWQ2OGY5NjM4MSIsIm5hbWUiOiJkdWNkdW9uZyIsImlhdCI6MTYzMDAzNjMzNCwiZXhwIjoxNjMwMTIyNzM0fQ.Qj-whSePDDKsbAFRaLkxqM1fmrxkgRmt7oAjt57ZZJ0"
 }
 
 
@@ -31,4 +31,4 @@ Content-Type: application/json
 ### get AllUser
 GET http://localhost:5000/user/all
 Content-Type: application/json
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMWEwYWU4NmFjZmM0MWQ2OGY5NjM4MSIsIm5hbWUiOiJkdWNkdW9uZyIsImlhdCI6MTYyOTEwNTEyOSwiZXhwIjoxNjI5MTA1MTg5fQ.2IarVoGVEJc7XYa3VSVqd_aVbbTFIMR5JlG8q03_Ock
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMWEwYWU4NmFjZmM0MWQ2OGY5NjM4MSIsIm5hbWUiOiJkdWNkdW9uZyIsImlhdCI6MTYzMDAzNjMzNCwiZXhwIjoxNjMwMDM2MzY0fQ.G8LvZQkxJ19_sv7aIR5w644W1eO-tR9G0whUDL1lyxs

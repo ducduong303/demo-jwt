@@ -46,7 +46,10 @@ http.interceptors.response.use(function (response) {
             // } catch (error) {
             //     return Promise.reject(error);
             // }
+        }else{
+            // Logout
         }
+
         return Promise.reject(error.response.data);
     } else {
         return Promise.reject(error);

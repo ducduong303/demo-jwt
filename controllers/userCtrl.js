@@ -58,11 +58,10 @@ const userCtrl = {
             // const token = req.header("Authorization")
             const refreshToken = req.body.token;
             // console.log(refreshToken);
-
             if (!refreshToken) return res.send({ msg: "Người dùng chưa đăng nhập" })
             jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (err, user) => {
                 // if (err) return res.send(false)
-                if (err) return res.status(403).json({ msg: "Người dùng chưa đăng nhập" })
+                if (err) return res.status(403).json({ msg: "Refresh Token hết hạn" })
                 // console.log("user", user);
                 const payload = { id: user.id, name: user.name }
                 const access_token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "60s" })

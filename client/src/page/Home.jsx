@@ -65,6 +65,7 @@ function Home(props) {
         history.push("/")
         localStorage.clear()
         setUserList([])
+        setInfo(null)
     }
     const toggleRegister = () => {
         setIsToggle(!isToggle)
@@ -97,6 +98,11 @@ function Home(props) {
                         <button onClick={refreshToken}>Refresh Token</button>
                         <button onClick={handleLogout}>Đăng xuất</button>
                     </div>
+                    <h5>Thông tin cá nhận:
+                        {
+                            info ? JSON.stringify(info) : null
+                        }
+                    </h5>
                     <UserList loadingdata={loadingdata} userList={userList}></UserList>
                 </> :
                     <div className="login-register">

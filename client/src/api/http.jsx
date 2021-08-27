@@ -1,8 +1,8 @@
 import axios from "axios";
 // import { NotificationError } from "../common/Notification";
 
-let BASE_URL = "http://localhost:5000/user"
-// let BASE_URL = "https://loggindemo.herokuapp.com/user"
+// let BASE_URL = "http://localhost:5000/user"
+let BASE_URL = "https://loggindemo.herokuapp.com/user"
 const http = axios.create({
     baseURL: BASE_URL,
 });

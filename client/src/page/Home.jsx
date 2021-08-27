@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import http from '../api/http';
 import { NotificationError, NotificationSuccess } from '../common/Notification';
@@ -42,15 +42,17 @@ function Home(props) {
             // Yêu cầu login
             try {
                 setLoadingdata(true)
+                // fetchInfo()
                 const res = await http.get("/all", {
                     headers: { Authorization: access_token }
                 })
+
                 if (res?.status === 200) {
                     // console.log("allUser", res);
                     setUserList(res?.data.user)
                     NotificationSuccess("", "Lấy danh sách thành công")
                     setLoadingdata(false)
-
+                    // fetchInfo()
                 }
             } catch (error) {
                 setLoadingdata(false)
@@ -66,11 +68,26 @@ function Home(props) {
         localStorage.clear()
         setUserList([])
     }
-
-
     const toggleRegister = () => {
         setIsToggle(!isToggle)
     }
+
+    const [info, setInfo] = useState()
+
+    const fetchInfo = async () => {
+        try {
+            const res = await http.get("/info")
+            if (res?.status === 200) {
+                console.log(res);
+                setInfo(res?.data?.user)
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    // useEffect(() => {
+    //     fetchInfo()
+    // }, [])
     return (
         <div>
             {

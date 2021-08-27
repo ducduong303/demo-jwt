@@ -11,5 +11,7 @@ router.post('/refresh_token', userCtrl.refreshToken)
 // get Alluser
 router.get("/all", auth, authAdmin, userCtrl.getAllUser)
 
+router.get("/info", auth, userCtrl.getOneUser)
+
 
 module.exports = router

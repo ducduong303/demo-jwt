@@ -36,13 +36,11 @@ function Home(props) {
     }
     const handleGetUser = async () => {
         let access_token = localStorage.getItem("access_token")
-        // let refresh_token = localStorage.getItem("refresh_token")
-        // const access_token = await refreshToken()
+
         if (access_token) {
-            // Yêu cầu login
             try {
                 setLoadingdata(true)
-                // fetchInfo()
+                fetchInfo();
                 const res = await http.get("/all", {
                     headers: { Authorization: access_token }
                 })

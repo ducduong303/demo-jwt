@@ -26,8 +26,6 @@ Content-Type: application/json
     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMWEwYWU4NmFjZmM0MWQ2OGY5NjM4MSIsIm5hbWUiOiJkdWNkdW9uZyIsImlhdCI6MTYzMDA0MDMzOCwiZXhwIjoxNjMwMTI2NzM4fQ.y1gryVF95GLNCMHKxN7RGVuHmxBvR8pgFGuUAbTnBiU"
 }
 
-
-
 ### get AllUser
 GET http://localhost:5000/user/all
 Content-Type: application/json

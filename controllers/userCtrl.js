@@ -62,7 +62,6 @@ const userCtrl = {
             jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (err, user) => {
                 // if (err) return res.send(false)
                 if (err) return res.status(403).json({ msg: "Refresh Token hết hạn" })
-                // console.log("user", user);
                 const payload = { id: user.id, name: user.name }
                 const access_token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "60s" })
                 res.json({ access_token })

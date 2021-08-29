@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import http from '../api/http';
 import { NotificationError, NotificationSuccess } from '../common/Notification';
@@ -36,21 +36,21 @@ function Home(props) {
     }
     const handleGetUser = async () => {
         let access_token = localStorage.getItem("access_token")
-        // let refresh_token = localStorage.getItem("refresh_token")
-        // const access_token = await refreshToken()
+
         if (access_token) {
-            // Yêu cầu login
             try {
                 setLoadingdata(true)
+                fetchInfo();
                 const res = await http.get("/all", {
                     headers: { Authorization: access_token }
                 })
+
                 if (res?.status === 200) {
                     // console.log("allUser", res);
                     setUserList(res?.data.user)
                     NotificationSuccess("", "Lấy danh sách thành công")
                     setLoadingdata(false)
-
+                    // fetchInfo()
                 }
             } catch (error) {
                 setLoadingdata(false)
@@ -65,12 +65,28 @@ function Home(props) {
         history.push("/")
         localStorage.clear()
         setUserList([])
+        setInfo(null)
     }
-
-
     const toggleRegister = () => {
         setIsToggle(!isToggle)
     }
+
+    const [info, setInfo] = useState()
+
+    const fetchInfo = async () => {
+        try {
+            const res = await http.get("/info")
+            if (res?.status === 200) {
+                console.log(res);
+                setInfo(res?.data?.user)
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    // useEffect(() => {
+    //     fetchInfo()
+    // }, [])
     return (
         <div>
             {
@@ -82,6 +98,11 @@ function Home(props) {
                         <button onClick={refreshToken}>Refresh Token</button>
                         <button onClick={handleLogout}>Đăng xuất</button>
                     </div>
+                    <h5>Thông tin cá nhận:
+                        {
+                            info ? JSON.stringify(info) : null
+                        }
+                    </h5>
                     <UserList loadingdata={loadingdata} userList={userList}></UserList>
                 </> :
                     <div className="login-register">

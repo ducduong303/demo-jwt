@@ -60,8 +60,7 @@ const userCtrl = {
             if (!refreshToken) return res.send({ msg: "Người dùng chưa đăng nhập" })
             jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (err, user) => {
                 // if (err) return res.send(false)
-                if (err) return res.status(403).json({ msg: "Người dùng chưa đăng nhập" })
-                // console.log("user", user);
+                if (err) return res.status(403).json({ msg: "Refresh Token hết hạn" })
                 const payload = { id: user.id, name: user.name }
                 const access_token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "60s" })
                 res.json({ access_token })
@@ -85,8 +84,16 @@ const userCtrl = {
         }
     },
 
-
-
+    getOneUser: async (req, res) => {
+        try {
+            const user = await Users.findById(req.user.id).select("-password")
+            res.json({
+                user
+            })
+        } catch (error) {
+            return res.status(500).json({ msg: error.message })
+        }
+    }
 
 }
 

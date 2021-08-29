@@ -36,16 +36,6 @@ http.interceptors.response.use(function (response) {
             refreshTokenRequest = null
             localStorage.setItem("access_token", newToken)
             return http(originalConfig);
-            // try {
-            //     const rs = await http.post("/refresh_token", {
-            //         token: localStorage.getItem("refresh_token")
-            //     });
-            //     const { access_token } = rs.data;
-            //     localStorage.setItem("access_token", access_token)
-            //     return http(originalConfig);
-            // } catch (error) {
-            //     return Promise.reject(error);
-            // }
         }else{
             // Logout
         }

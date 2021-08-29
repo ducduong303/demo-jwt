@@ -49,14 +49,12 @@ http.interceptors.response.use(function (response) {
         }else{
             // Logout
         }
-
         return Promise.reject(error.response.data);
     } else {
         return Promise.reject(error);
     }
 });
 export default http;
-
 
 const refreshToken = async () => {
     try {
